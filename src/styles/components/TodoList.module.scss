@@ -1,0 +1,19 @@
+@use "../abstracts";
+
+.TodoList {
+  margin-top: 1.8rem;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+
+  &_item {
+    list-style: none;
+  }
+
+  & > *:not(:last-of-type) {
+    border-bottom: 1px solid rgba(abstracts.$clr-text-muted-dark, 0.3);
+  }
+
+  & li:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+    overflow: hidden;
+  }
+}

@@ -1,7 +1,7 @@
 import { createStore, produce } from "solid-js/store";
 import { v4 as uuid } from "uuid";
 
-interface Todo {
+export interface Todo {
   id: string;
   task: string;
   complete: boolean;
@@ -22,7 +22,7 @@ function toggleTodo(id: string) {
 }
 
 function removeTodo(id: string) {
-  setTodos(produce((todos) => todos.filter((todo) => todo.id !== id)));
+  setTodos(todos.filter((todo) => todo.id !== id));
 }
 
 export { todos, addTodo, toggleTodo, removeTodo };

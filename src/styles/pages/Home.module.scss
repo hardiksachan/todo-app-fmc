@@ -1,6 +1,15 @@
 @use "../abstracts";
 
 .App {
+  &_container {
+    display: grid;
+    grid-template-columns:
+      minmax(3rem, 1fr) [center-start] minmax(min-content, 54rem)
+      [center-end] minmax(3rem, 1fr);
+  }
+
+  grid-column: center-start / center-end;
+
   &::before {
     content: "";
     width: 100%;

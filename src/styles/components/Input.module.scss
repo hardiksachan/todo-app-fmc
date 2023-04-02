@@ -1,8 +1,6 @@
 @use "../abstracts";
 
 .Input {
-  @include abstracts.centered;
-
   position: relative;
 
   &___dark > &_field {
@@ -18,7 +16,7 @@
   &_field {
     width: 100%;
     padding: 1.8rem 2.5rem;
-    padding-left: 4.5rem;
+    padding-left: 5.7rem;
     border: none;
     border-radius: 0.5rem;
     font-family: inherit;
@@ -32,7 +30,7 @@
 
   &_leadingIcon {
     position: absolute;
-    left: 4.5rem;
+    left: 2rem;
     top: 50%;
     transform: translateY(-55%);
   }
