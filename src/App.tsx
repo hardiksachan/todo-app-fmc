@@ -1,7 +1,9 @@
-import { Component, createSignal } from "solid-js";
+import { Component } from "solid-js";
 import Header from "./components/Header";
+import Input from "./components/Input";
 import { useThemeContext } from "./stores/ThemeContext";
 import styles from "./styles/pages/Home.module.scss";
+import { addTodo } from "./stores/TodosStore";
 
 const App: Component = () => {
   const { isDarkTheme } = useThemeContext();
@@ -13,7 +15,11 @@ const App: Component = () => {
       }`}
     >
       <Header />
-      <div>TODO: input</div>
+      <Input
+        onSubmit={(todo) => {
+          addTodo(todo);
+        }}
+      />
       <div>TODO: list</div>
       <div>TODO: controls</div>
     </main>
