@@ -1,6 +1,7 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import App from "./App";
+import { ThemeContextProvider } from "./stores/ThemeContext";
 import "./styles/main.scss";
 
 const root = document.getElementById("root");
@@ -11,4 +12,10 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <App />, root!);
+render(() => {
+  return (
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>
+  );
+}, root!);
