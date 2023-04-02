@@ -1,6 +1,7 @@
 import { Component, createSignal } from "solid-js";
 import { useThemeContext } from "../stores/ThemeContext";
 import styles from "../styles/components/Input.module.scss";
+import BlankCircle from "./icons/BlankCircle";
 
 interface Props {
   onSubmit: (todo: string) => void;
@@ -21,7 +22,9 @@ const Input: Component<Props> = (props) => {
         setTodo("");
       }}
     >
-      <span class={styles.Input_leadingIcon}>&nbsp</span>
+      <div class={styles.Input_leadingIcon}>
+        <BlankCircle />
+      </div>
       <input
         class={styles.Input_field}
         type="text"
