@@ -1,0 +1,48 @@
+@use "../abstracts";
+
+.App {
+  &::before {
+    content: "";
+    width: 100%;
+    height: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 75%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &___dark {
+    color: abstracts.$clr-text-dark;
+
+    &::before {
+      background-image: url("bg-mobile-dark.jpg");
+    }
+
+    &::after {
+      background-color: abstracts.$clr-background-dark;
+    }
+  }
+
+  &___light {
+    color: abstracts.$clr-text-light;
+
+    &::before {
+      background-image: url("bg-mobile-light.jpg");
+    }
+
+    &::after {
+      background-color: abstracts.$clr-background-light;
+    }
+  }
+}
