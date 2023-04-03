@@ -46,4 +46,16 @@
     padding: 0.4rem;
     cursor: pointer;
   }
+
+  @media only screen and (min-width: 37.5rem) {
+    &_delete {
+      display: none;
+      visibility: hidden;
+    }
+
+    &:hover &_delete {
+      display: block;
+      visibility: visible;
+    }
+  }
 }
