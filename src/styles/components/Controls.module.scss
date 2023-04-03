@@ -6,6 +6,10 @@
   grid-row-gap: 1rem;
   align-items: baseline;
 
+  @media only screen and (min-width: 37.5rem) {
+    display: flex;
+  }
+
   box-shadow: abstracts.$default-shadow;
   font-size: abstracts.$font-size;
 
@@ -56,11 +60,17 @@
 .ClearCompleted,
 .Filter {
   padding: 1.5rem 2rem;
+
+  @media only screen and (min-width: 37.5rem) {
+    flex: 1;
+  }
 }
 
 .CompletionStatus {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
+
+  padding-right: 0;
 }
 
 .ClearCompleted {
@@ -69,6 +79,13 @@
 
   display: flex;
   justify-content: end;
+
+  padding-left: 0;
+
+  @media only screen and (min-width: 37.5rem) {
+    flex: 1;
+    order: 2;
+  }
 
   button {
     background-color: transparent;

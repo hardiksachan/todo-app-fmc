@@ -19,6 +19,10 @@
     left: 0;
     background-size: cover;
     z-index: -1;
+
+    @media only screen and (min-width: 37.5rem) {
+      height: 30%;
+    }
   }
 
   &::after {
@@ -29,6 +33,10 @@
     bottom: 0;
     left: 0;
     z-index: -1;
+
+    @media only screen and (min-width: 37.5rem) {
+      height: 70%;
+    }
   }
 
   &___dark {
@@ -36,6 +44,10 @@
 
     &::before {
       background-image: url("bg-mobile-dark.jpg");
+
+      @media only screen and (min-width: 37.5rem) {
+        background-image: url("bg-desktop-dark.jpg");
+      }
     }
 
     &::after {
@@ -48,6 +60,10 @@
 
     &::before {
       background-image: url("bg-mobile-light.jpg");
+
+      @media only screen and (min-width: 37.5rem) {
+        background-image: url("bg-desktop-light.jpg");
+      }
     }
 
     &::after {
