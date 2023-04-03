@@ -1,0 +1,74 @@
+@use "../abstracts";
+
+.ControlsLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1rem;
+  align-items: baseline;
+
+  box-shadow: abstracts.$default-shadow;
+  font-size: abstracts.$font-size;
+
+  &___dark {
+    .CompletionStatus,
+    .ClearCompleted,
+    .Filter {
+      background-color: abstracts.$clr-surface-dark;
+      color: abstracts.$clr-text-muted-dark;
+    }
+
+    .ClearCompleted button:hover {
+      color: abstracts.$clr-text-dark;
+    }
+  }
+
+  &___light {
+    .CompletionStatus,
+    .ClearCompleted,
+    .Filter {
+      background-color: abstracts.$clr-surface-light;
+      color: abstracts.$clr-text-muted-light;
+    }
+
+    .ClearCompleted button:hover {
+      color: abstracts.$clr-text-light;
+    }
+  }
+}
+
+.CompletionStatus,
+.ClearCompleted,
+.Filter {
+  padding: 1.5rem 2rem;
+}
+
+.CompletionStatus {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.ClearCompleted {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+
+  display: flex;
+  justify-content: end;
+
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+    }
+  }
+}
+
+.Filter {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+}

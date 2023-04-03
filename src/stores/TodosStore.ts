@@ -1,3 +1,4 @@
+import { createMemo } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import { v4 as uuid } from "uuid";
 
@@ -25,4 +26,19 @@ function removeTodo(id: string) {
   setTodos(todos.filter((todo) => todo.id !== id));
 }
 
-export { todos, addTodo, toggleTodo, removeTodo };
+function removeCompletedTodos() {
+  setTodos(todos.filter((todo) => !todo.complete));
+}
+
+const incompleteTodos = createMemo(
+  () => todos.filter((todo) => !todo.complete).length
+);
+
+export {
+  todos,
+  addTodo,
+  toggleTodo,
+  removeTodo,
+  removeCompletedTodos,
+  incompleteTodos,
+};
