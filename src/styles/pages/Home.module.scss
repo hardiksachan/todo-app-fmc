@@ -43,10 +43,10 @@
     color: abstracts.$clr-text-dark;
 
     &::before {
-      background-image: url("bg-mobile-dark.jpg");
+      background-image: url("/bg-mobile-dark.jpg");
 
       @media only screen and (min-width: 37.5rem) {
-        background-image: url("bg-desktop-dark.jpg");
+        background-image: url("/bg-desktop-dark.jpg");
       }
     }
 
@@ -59,10 +59,10 @@
     color: abstracts.$clr-text-light;
 
     &::before {
-      background-image: url("bg-mobile-light.jpg");
+      background-image: url("/bg-mobile-light.jpg");
 
       @media only screen and (min-width: 37.5rem) {
-        background-image: url("bg-desktop-light.jpg");
+        background-image: url("/bg-desktop-light.jpg");
       }
     }
 
