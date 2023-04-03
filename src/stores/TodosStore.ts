@@ -1,4 +1,4 @@
-import { createMemo } from "solid-js";
+import { createMemo, createSignal } from "solid-js";
 import { createStore, produce } from "solid-js/store";
 import { v4 as uuid } from "uuid";
 
@@ -8,7 +8,14 @@ export interface Todo {
   complete: boolean;
 }
 
+export enum Filter {
+  ALL,
+  ACTIVE,
+  COMPLETE,
+}
+
 const [todos, setTodos] = createStore<Todo[]>([]);
+const [filter, setFilter] = createSignal<Filter>(Filter.ALL);
 
 function addTodo(task: string) {
   const todo = { id: uuid(), task, complete: false };
@@ -30,15 +37,30 @@ function removeCompletedTodos() {
   setTodos(todos.filter((todo) => !todo.complete));
 }
 
-const incompleteTodos = createMemo(
+const activeTodoCount = createMemo(
   () => todos.filter((todo) => !todo.complete).length
 );
 
+const filteredTodos = createMemo(() => {
+  switch (filter()) {
+    case Filter.ALL:
+      return todos;
+    case Filter.ACTIVE:
+      return todos.filter((todo) => !todo.complete);
+    case Filter.COMPLETE:
+      return todos.filter((todo) => todo.complete);
+    default:
+      throw new Error("Illegal State: " + filter());
+  }
+});
+
 export {
-  todos,
+  filteredTodos,
   addTodo,
   toggleTodo,
   removeTodo,
   removeCompletedTodos,
-  incompleteTodos,
+  activeTodoCount,
+  filter,
+  setFilter,
 };

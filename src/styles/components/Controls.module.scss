@@ -17,6 +17,14 @@
       color: abstracts.$clr-text-muted-dark;
     }
 
+    .Filter_button {
+      color: abstracts.$clr-text-muted-dark;
+
+      &:hover {
+        color: abstracts.$clr-text-dark;
+      }
+    }
+
     .ClearCompleted button:hover {
       color: abstracts.$clr-text-dark;
     }
@@ -28,6 +36,14 @@
     .Filter {
       background-color: abstracts.$clr-surface-light;
       color: abstracts.$clr-text-muted-light;
+    }
+
+    .Filter_button {
+      color: abstracts.$clr-text-muted-light;
+
+      &:hover {
+        color: abstracts.$clr-text-light;
+      }
     }
 
     .ClearCompleted button:hover {
@@ -62,13 +78,33 @@
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
-
-    &:hover {
-    }
   }
 }
 
 .Filter {
   grid-row: 2 / span 1;
   grid-column: 1 / span 2;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  &_item {
+    list-style: none;
+    padding: 0 2rem;
+  }
+
+  &_item___active &_button {
+    color: #2c6eef;
+  }
+
+  &_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+  }
 }

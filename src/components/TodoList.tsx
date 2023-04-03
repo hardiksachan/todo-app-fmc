@@ -1,6 +1,6 @@
 import { Component, For } from "solid-js";
 import { useThemeContext } from "../stores/ThemeContext";
-import { Todo, todos } from "../stores/TodosStore";
+import { Todo, filteredTodos } from "../stores/TodosStore";
 import styles from "../styles/components/TodoList.module.scss";
 import TodoItem from "./TodoItem";
 
@@ -9,7 +9,7 @@ const TodoList: Component = () => {
 
   return (
     <ul class={styles.TodoList}>
-      <For each={todos}>
+      <For each={filteredTodos()}>
         {(todo: Todo) => (
           <li class={styles.TodoList_item}>
             <TodoItem todo={todo} />
